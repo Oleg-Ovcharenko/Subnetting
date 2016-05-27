@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>site</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	<div class="container">
+		<div id="header">
+			<h3 class="bg-primary">Разбиение сетей с маской постоянной длинны</h3>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input_form">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label for="ip_subnet_constant" class="col-sm-4 control-label">IP-адрес</label>
+							<div class="col-sm-4">
+	      						<input type="text" class="form-control" id="ip_subnet_constant" value="192.168.1.0">
+	    					</div>
+						</div>
+						<div class="form-group">
+							<label for="mask_subnet_constant" class="col-sm-4 control-label">Маска</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="mask_subnet_constant" value="24">
+	    					</div>	
+						</div>
+						<div class="form-group">
+							<label for="amount_constant" class="col-sm-4 control-label">Количество подсетей</label>
+							<div class="col-sm-2">
+	      						<input type="text" class="form-control" id="amount_constant" value="1">
+	    					</div>
+						</div>
+						<div class="form-group">
+					    	<div class="col-sm-offset-4 col-sm-8">
+					      		<button id="calculate_subneting_consstant_btn" type="submit" class="btn btn-default">Рассчитать</button>
+					    	</div>
+					  	</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 inform">
+				<h3>Результирующая информация</h3> 
+				<ul>
+					<li id="info_netw"></li>
+					<li id="info_chosts"></li>
+					<li id="info_newmask"></li>
+					<li id="info_wildcar"></li>
+				</ul>
+			</div>			
+		</div>
+	</div>
+	<div class="container result result_subnet_constant">
+		<h3 class="indicator_subnet_constant"></h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>№ подсети</th>
+					<th>Размер</th>
+					<th>Адрес</th>
+					<th>Маска</th>
+					<th>Десятичная маска</th>
+					<th>Диапазон доступных адресов</th>
+				</tr>
+			</thead>
+			<tbody id="table_constatnt">
+			</tbody>
+		</table>
+	</div>
+	<!--<div class="container">
+		<div id="header">
+			<h3 class="bg-primary">Разбиение сетей с маской переменной длины VLSM</h3>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input_form">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label for="ip_subnet" class="col-sm-4 control-label">IP-адрес</label>
+							<div class="col-sm-4">
+	      						<input type="text" class="form-control" id="ip_subnet" value="192.168.1.0">
+	    					</div>
+						</div>
+						<div class="form-group">
+							<label for="mask_subnet" class="col-sm-4 control-label">Маска</label>
+							<div class="col-sm-2">
+								<input type="text" class="form-control" id="mask_subnet" value="24">
+	    					</div>	
+						</div>
+						<div class="form-group">
+							<label for="amount" class="col-sm-4 control-label">Количество подсетей</label>
+							<div class="col-sm-2">
+	      						<input type="text" class="form-control" id="amount" value="1">
+	    					</div>	
+	    					<button id="amount_btn" type="submit" class="btn btn-default">Задать</button>
+						</div>
+						<p>Введите нужное количество хостов в каждой подсети</p>
+						<div id="subnet_box">
+							<div class="form-group" id="subnet_forms1">
+								<label for="net1" class="col-sm-4 control-label">Подсеть №1</label>
+								<div class="col-sm-2">
+		      						<input type="text" class="form-control" id="net1" placeholder="хостов">
+		    					</div>
+							</div>
+						</div>
+						<div class="form-group">
+					    	<div class="col-sm-offset-4 col-sm-8">
+					      		<button id="calculate_subneting_btn" type="submit" class="btn btn-default">Рассчитать</button>
+					    	</div>
+					  	</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 inform">
+				<h3>Результирующая информация</h3> 
+				<ul>
+					<li>Исходная сеть: <b>192.168.1.0/24</b></li>
+					<li>Количество необходимых <b>IP адресов: 106</b></li>
+					<li>Доступно адресов в исходной сети: <b>254</b></li>
+					<li>Доступно адресов в разбитой сети: <b>156</b></li>
+					<li>Около <b>42%</b> доступного адресного пространства исходной сети использовано</li>
+					<li>Около <b>68%</b> адресного пространства разбитой сети использовано</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container result">
+		<h3 class="text-success"><strong>Разбиение выполнено успешно<strong></h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>№ подсети</th>
+					<th>Размер</th>
+					<th>Выделенный размер</th>
+					<th>Адрес</th>
+					<th>Маска</th>
+					<th>Десятичная маска</th>
+					<th>Диапазон доступных адресов</th>
+				</tr>
+			</thead>
+			<tbody id="table">
+			</tbody>
+		</table>
+	</div>-->
+	<div class="container" id="inform_ip">
+		<h3 class="bg-primary">Информаци о IP-адресе</h3>
+		<hr>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="ip_analiz" class="col-sm-4 control-label">IP-адрес</label>
+						<div class="col-sm-6">
+			      			<input type="text" class="form-control" id="ip_analiz" value="192.168.1.0">
+			    		</div>
+					</div>
+					<div class="form-group">
+						<label for="mask_analiz" class="col-sm-4 control-label">Маска</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="mask_analiz">
+	    				</div>	
+					</div>
+					<div class="form-group">
+					    <div class="col-sm-offset-4 col-sm-8">
+					      	<button id="ip_analiz_btn" type="submit" class="btn btn-default">Посмотреть</button>
+					    </div>
+					</div>			
+				</div>
+			</div>
+			<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Свойство</th>
+						<th>Адрес</th>
+						<th>Шестнадцатиричная</th>
+						<th>Двоичная</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Address:</td>
+						<td id="address_decimal"></td>
+						<td id="address_hexadecimal"></td>
+						<td id="address_binary"></td>
+					</tr>
+					<tr>
+						<td>Bitmask:</td>
+						<td id="mask_decimal"></td>
+						<td></td>
+						<td id="mask_binary"></td>
+					</tr>
+					<tr>
+						<td>Netmask:</td>
+						<td id="netmask_decemal"></td>
+						<td id="netmask_hexadecimal"></td>
+						<td id="netmask_binary"></td>
+					</tr>
+					<tr>
+						<td>Wildcard:</td>
+						<td id="wildcard_decemal"></td>
+						<td id="wildcard_hexadecimal"></td>
+						<td id="wildcard_binary"></td>
+					</tr>
+					<tr>
+						<td>Network:</td>
+						<td id="network_decemal"></td>
+						<td id="network_hexadecimal"></td>
+						<td id="network_binary"></td>
+					</tr>
+					<tr>
+						<td>HostMin:</td>
+						<td id="hostmin_decemal"></td>
+						<td id="hostmin_hexadecimal"></td>
+						<td id="hostmin_binary"></td>
+					</tr>
+					<tr>
+						<td>HostMax:</td>
+						<td id="hostmax_decemal"></td>	   	
+						<td id="hostmax_hexademical"></td>	   	
+						<td id="hostmax_binary"></td>
+					</tr>
+					<tr>
+						<td>Broadcast:</td>
+						<td id="broadcast_decemal"></td>	   	
+						<td id="broadcast_hexademical"></td>	   	
+						<td id="broadcast_binary"></td>
+					</tr>
+					<tr>
+						<td>Hosts:</td>
+						<td id="hosts_decemal"></td>
+						<td></td>
+						<td></td>
+					</tr>			
+				</tbody>
+			</table>		
+			</div>
+		</div>
+		<hr>
+		<p class="foot_text">Овчаренко Олег гр ТК-12-2 <br> <b>ХНУРЭ</b></p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

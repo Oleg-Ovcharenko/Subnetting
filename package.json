@@ -1,0 +1,24 @@
+{
+  "name": "truezombie.com_wordpress_template",
+  "verdion": "0.0.0",
+  "author": "Oleg Ovcharenko",
+  "homepage": "http://truezombie.com",
+  "description": "This layout theme for wp http://truezombie.com",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-csscomb": "^3.0.6",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.1"
+  },
+  "dependencies": {
+    "opn": "^3.0.3"
+  }
+}
