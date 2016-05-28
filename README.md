@@ -1,3 +1,5 @@
 # Разбиение сетей на подсети с получением полной информации о подсети
 
-![alt text](https://goo.gl/CDiHml "img")
+
+
+![alt text](http://s017.radikal.ru/i425/1605/44/bd739f601380.png "Logo Title Text 1")
