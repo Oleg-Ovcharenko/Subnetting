@@ -1,4 +1,3 @@
 # Разбиение сетей на подсети с получением полной информации о подсети
 
-
-[logo]: https://goo.gl/CDiHml "image"
+![alt text](https://goo.gl/CDiHml "img")
